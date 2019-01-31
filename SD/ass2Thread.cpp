@@ -39,20 +39,36 @@ void bst::create(int d)
         head = n;
     else
     {
-        treeNode *parent = head;
-        treeNode *child = parent;
-        while (child != NULL)
+        treeNode *temp = head;
+        while (1)
         {
-            parent = child;
-            if (d > parent->data)
-                child = parent->rchild;
-            if (d < parent->data)
-                child = parent->lchild;
+            if (temp->data > d)
+            {
+                if (temp->rthread != true)
+                    temp = temp->rchild;
+                else
+                {
+                    n->rchild = temp->rchild;
+                    n->lchild = temp;
+                    temp->rchild = n;
+                    temp->rthread = false;
+                    break;
+                }
+            }
+            if (temp->data < d)
+            {
+                if (temp->lthread != true)
+                    temp = temp->lchild;
+                else
+                {
+                    n->lchild = temp->lchild;
+                    n->rchild = temp;
+                    temp->lchild = n;
+                    temp->lthread = false;
+                    break;
+                }
+            }
         }
-        if (d > parent->data)
-            parent->rchild = n;
-        else
-            parent->lchild = n;
     }
 }
 treeNode *bst::root()
@@ -61,12 +77,6 @@ treeNode *bst::root()
 }
 void bst::inorder(treeNode *root)
 {
-    if (root != NULL)
-    {
-        inorder(root->lchild);
-        cout << root->data;
-        inorder(root->rchild);
-    }
 }
 void bst::preorder(treeNode *root)
 {
