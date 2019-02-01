@@ -26,6 +26,7 @@ class bst
     void inorder(treeNode *root);
     void preorder(treeNode *root);
     treeNode *root();
+    treeNode *ltmost(treeNode *root);
 };
 
 void bst::create(int d)
@@ -75,8 +76,30 @@ treeNode *bst::root()
 {
     return head;
 }
+treeNode *bst::ltmost(treeNode *node)
+{
+    while (node->lthread != true)
+        node = node->lchild;
+    return node;
+}
 void bst::inorder(treeNode *root)
 {
+    treeNode *a;
+    a = root;
+    if (root == NULL)
+        cout << "empty tree\n";
+    else
+    {
+        a = ltmost(a);
+        while (a != NULL)
+        {
+            cout << a->data;
+            if (a->rthread)
+                a = a->rchild;
+            else
+                a = ltmost(a);
+        }
+    }
 }
 void bst::preorder(treeNode *root)
 {
