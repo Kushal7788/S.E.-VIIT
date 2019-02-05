@@ -115,8 +115,7 @@ int main()
             break;
 	case 4:
             root = ob.root();
-	     int ht; 
-		ht = ob.htbst(root);
+	     int ht = ob.htbst(root);
 		cout<<"Height is ";
 		cout<<ht<<endl;
 		cout<<"Nodes present are  ";
