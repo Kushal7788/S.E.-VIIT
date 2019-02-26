@@ -13,7 +13,7 @@ class graphMatrix
     graphMatrix(int m);
     void display();
     void accept();
-    void depth(int st);
+    void depth(int` st);
 };
 
 graphMatrix::graphMatrix(int m)
