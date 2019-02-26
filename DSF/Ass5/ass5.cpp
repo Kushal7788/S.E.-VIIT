@@ -13,7 +13,7 @@ class graphMatrix
     graphMatrix(int m);
     void display();
     void accept();
-    void depth();
+    void depth(int st);
 };
 
 graphMatrix::graphMatrix(int m)
@@ -47,12 +47,12 @@ void graphMatrix::accept()
         }
     }
 }
-void graphMatrix::depth()
+void graphMatrix::depth(int st)
 {
     stack<int> s;
     int arrpoint = 0;
     int arr[size];
-    s.push(v[0][0]);
+    s.push(st);
     while (!s.empty())
     {
         int temp;
@@ -107,7 +107,10 @@ int main()
             ob.display();
             break;
         case 3:
-            ob.depth();
+            int st;
+            cout << "Enter start Vertex\n";
+            cin >> st;
+            ob.depth(st);
             break;
         case 5:
             cout << "Exit\n";
