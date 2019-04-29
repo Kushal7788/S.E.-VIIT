@@ -100,7 +100,13 @@ public class JavaApplication1 extends JFrame {
         s1= sign(x2-x1);
         boolean exc;
         if(dy>dx)
+        {
+        	float temp;
+        	temp = dx;
+        	dx=dy;
+        	dy=temp;
             exc=true;
+        }
         else
             exc=false;
         float e;

@@ -10,7 +10,6 @@ import java.lang.*;
 import java.util.*;
 /**
  *
- * @author RohitL
  */
 public class ScanLine extends JFrame{
     int no_vert = 5;
