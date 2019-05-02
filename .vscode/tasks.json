@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "ass2.cpp"
+                "ass3.cpp"
             ],
             "group": {
                 "kind": "build",
